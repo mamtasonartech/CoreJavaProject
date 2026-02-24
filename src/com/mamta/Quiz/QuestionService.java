@@ -17,39 +17,41 @@ public class QuestionService {
 
 
     public void display(){
-
         System.out.println("Welcome to Quiz Competition");
-       for(int i=0; i<question.length;i++){
-            System.out.print("Question :" + " " + question[i].getId() + " ");
-            System.out.println(question[i].getQuestion());
-            System.out.println(question[i].getOpt1());
-            System.out.println(question[i].getOpt2());
-            System.out.println(question[i].getOpt3());
-            System.out.println(question[i].getOpt4());
-            Scanner sc = new Scanner(System.in);
-            userinput[i] = sc.nextLine();
-            if(userinput[i] == question[i].getAnswer()){
-                System.out.println("Correct");
-            }
-            else{
-                System.out.println("Incorrect");
-            }
-       }
+           for(int i=0; i<question.length;i++){
+                System.out.print("Question :" + " " + question[i].getId() + " ");
+                System.out.println(question[i].getQuestion());
+                System.out.println(question[i].getOpt1());
+                System.out.println(question[i].getOpt2());
+                System.out.println(question[i].getOpt3());
+                System.out.println(question[i].getOpt4());
+                Scanner sc = new Scanner(System.in);
+                userinput[i] = sc.nextLine();
 
-       for(String s : userinput){
-           System.out.println(s);
+           }
 
-       }
+           for(String s : userinput){
+               System.out.println(s);
 
-
-
-
-
-
+           }
     }
 
+    public void printScore(){
 
+        int score =0;
+        for(int i=0; i<question.length;i++){
 
+            Question que = question[i];
+            String actualAnswer = que.getAnswer();
+            String userAnswer = userinput[i];
 
+            if(userAnswer.equals(actualAnswer)){
+                score++;
+            }
+
+        }
+        System.out.println("Your Score is :" +score);
+
+    }
 
 }
