@@ -1,8 +1,11 @@
 package com.mamta.Quiz;
 
+import java.util.Scanner;
+
 public class QuestionService {
 
     Question[] question = new Question[5];
+    String[] userinput = new String[5];
 
     public QuestionService(){
         question[0] = new Question(1,"size of int","2","6","4","8","4");
@@ -14,9 +17,39 @@ public class QuestionService {
 
 
     public void display(){
-       for(Question que: question){
-           System.out.println(que);
+
+        System.out.println("Welcome to Quiz Competition");
+       for(int i=0; i<question.length;i++){
+            System.out.print("Question :" + " " + question[i].getId() + " ");
+            System.out.println(question[i].getQuestion());
+            System.out.println(question[i].getOpt1());
+            System.out.println(question[i].getOpt2());
+            System.out.println(question[i].getOpt3());
+            System.out.println(question[i].getOpt4());
+            Scanner sc = new Scanner(System.in);
+            userinput[i] = sc.nextLine();
+            if(userinput[i] == question[i].getAnswer()){
+                System.out.println("Correct");
+            }
+            else{
+                System.out.println("Incorrect");
+            }
        }
+
+       for(String s : userinput){
+           System.out.println(s);
+
+       }
+
+
+
+
+
+
     }
+
+
+
+
 
 }
